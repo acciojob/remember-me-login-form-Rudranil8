@@ -95,23 +95,23 @@
                 localStorage.removeItem('password');
             }
             alert('Logged in as ' + username);
-
-            // Moved this code inside the submit event handler
-            if (localStorage.getItem('username')) {
-                var button = document.getElementById('existing');
-                if (!button) {
-                    button = document.createElement('button');
-                    button.id = 'existing';
-                    button.innerText = 'Login as existing user';
-                    document.body.appendChild(button);
-
-                    button.addEventListener('click', function() {
-                        var savedUsername = localStorage.getItem('username');
-                        alert('Logged in as ' + savedUsername);
-                    });
-                }
-            }
         });
+
+        // Moved this code outside the submit event handler
+        if (localStorage.getItem('username')) {
+            var button = document.getElementById('existing');
+            if (!button) {
+                button = document.createElement('button');
+                button.id = 'existing';
+                button.innerText = 'Login as existing user';
+                document.body.appendChild(button);
+
+                button.addEventListener('click', function() {
+                    var savedUsername = localStorage.getItem('username');
+                    alert('Logged in as ' + savedUsername);
+                });
+            }
+        }
     </script>
 </body>
 </html>
