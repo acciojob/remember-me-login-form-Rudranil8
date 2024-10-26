@@ -40,7 +40,6 @@
 //         alert('Logged in as ' + savedUsername);
 //     });
 // }
-
 document.getElementById('submit').addEventListener('click', function(event) {
     event.preventDefault();
     var username = document.getElementById('username').value;
@@ -55,6 +54,8 @@ document.getElementById('submit').addEventListener('click', function(event) {
         localStorage.removeItem('password');
     }
     alert('Logged in as ' + username);
+
+    // Check for existing user after login
     if (localStorage.getItem('username')) {
         var button = document.getElementById('existing');
         if (!button) {
