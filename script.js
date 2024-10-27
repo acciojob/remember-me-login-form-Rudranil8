@@ -78,6 +78,11 @@ document.getElementById('submit').addEventListener('click', function(event) {
     var password = document.getElementById('password').value;
     var rememberMe = document.getElementById('checkbox').checked;
 
+	if (username === '' || password === '') {
+        alert('Please enter both username and password');
+        return;
+    }
+
     if (rememberMe) {
         localStorage.setItem('username', username);
         localStorage.setItem('password', password);
